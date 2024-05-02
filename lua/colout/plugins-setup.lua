@@ -33,6 +33,7 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
 	-- Themes
+	use({ "ellisonleao/gruvbox.nvim" }) -- gruvbox
 	use("Mofiqul/vscode.nvim") -- VSCode theme
 	use("caglartoklu/qbcolor.vim") -- QB theme
 

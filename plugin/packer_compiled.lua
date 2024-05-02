@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?.lua;/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?/init.lua;/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?.lua;/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1700008891/lib/lua/5.1/?.so"
+local package_path_str = "/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/colinhoughton/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -108,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/colinhoughton/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/colinhoughton/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -246,7 +251,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Setup for: markdown-preview.nvim
 time([[Setup for markdown-preview.nvim]], true)
-try_loadstring("\27LJ\2\nµ\1\0\0\2\0\b\0\v6\0\0\0009\0\1\0)\1\0\0=\1\2\0)\1\0\0=\1\3\0'\1\5\0=\1\4\0005\1\a\0=\1\6\0K\0\1\0\1\0\2\24disable_sync_scroll\3\0\21disable_filename\3\1\25mkdp_preview_options\15${name}.md\20mkdp_page_title\20mkdp_auto_close\20mkdp_auto_start\6g\bvim\0", "setup", "markdown-preview.nvim")
+try_loadstring("\27LJ\2\nµ\1\0\0\2\0\b\0\v6\0\0\0009\0\1\0)\1\0\0=\1\2\0)\1\0\0=\1\3\0'\1\5\0=\1\4\0005\1\a\0=\1\6\0K\0\1\0\1\0\2\21disable_filename\3\1\24disable_sync_scroll\3\0\25mkdp_preview_options\15${name}.md\20mkdp_page_title\20mkdp_auto_close\20mkdp_auto_start\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
