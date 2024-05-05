@@ -16,6 +16,15 @@ vim.opt.showmode = false
 -- Enable break indent
 vim.opt.breakindent = true
 
+vim.opt.encoding = 'utf-8'
+vim.opt.termguicolors = true
+vim.opt.ruler = true
+vim.opt.showcmd = true
+
+vim.opt.incsearch = true
+
+vim.opt.swapfile = false
+
 vim.opt.undofile = true
 
 vim.opt.ignorecase = true

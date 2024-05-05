@@ -25,15 +25,10 @@ require('lazy').setup({
   { import = 'plugins.telescope' },
   { import = 'plugins.language' },
   { import = 'plugins.files' },
-
-  require 'plugins.visuals',
-
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  { import = 'custom.plugins' },
+  { import = 'plugins.visuals' },
+  { import = 'plugins.visuals.helpers' },
+  { import = 'plugins.visuals.theme' },
+  -- { import = 'plugins.llm' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

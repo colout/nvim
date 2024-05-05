@@ -15,6 +15,9 @@ return {
     filesystem = {
       window = {
         width = 35,
+        mappings = {
+          ['<space>'] = '', -- please don't hijack my leader key :(
+        },
       },
     },
     default_component_configs = {
