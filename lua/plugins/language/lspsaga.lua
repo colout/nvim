@@ -4,7 +4,7 @@ return {
     require('lspsaga').setup {}
 
     vim.keymap.set('n', '<leader>la', '<cmd>Lspsaga code_action<CR>', { desc = '[L]sp code [A]ctions' })
-    vim.keymap.set('n', '<leader>lf', '<cmd>Lspsaga finder<CR>', { desc = '[L]sp [F]inder' })
+    vim.keymap.set('n', '<leader>fl', '<cmd>Lspsaga finder<CR>', { desc = '[F]ind [L]sp' })
     vim.keymap.set('n', '<leader>lh', '<cmd>Lspsaga hover_doc<CR>', { desc = '[L]sp [H]over doc' })
     vim.keymap.set('n', '<leader>lr', '<cmd>Lspsaga rename<CR>', { desc = '[L]sp [R]ename' })
     vim.keymap.set('n', '<leader>lp', '<cmd>Lspsaga peek_definition<CR>', { desc = '[L]sp [P]eek definition' })
