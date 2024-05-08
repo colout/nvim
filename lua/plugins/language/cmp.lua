@@ -34,6 +34,7 @@ return { -- Autocompletion
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
+    'kristijanhusak/vim-dadbod-completion',
   },
   config = function()
     -- See `:help cmp`
@@ -120,6 +121,7 @@ return { -- Autocompletion
         { name = 'luasnip' },
         { name = 'path' },
         { name = 'cmdline' },
+        { name = 'vim-dadbod-completion' },
       },
     }
   end,

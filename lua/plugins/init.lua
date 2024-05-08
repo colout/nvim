@@ -24,7 +24,7 @@ require('lazy').setup({
   { import = 'plugins.git' },
   { import = 'plugins.telescope' },
   { import = 'plugins.language' },
-  { import = 'plugins.files' },
+  { import = 'plugins.productivity' },
   { import = 'plugins.visuals' },
   { import = 'plugins.visuals.helpers' },
   { import = 'plugins.visuals.theme' },
