@@ -56,3 +56,7 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
+
+-- Conceal formatting for markdown
+vim.opt.conceallevel = 1
+vim.opt_local.conceallevel = 2

@@ -43,6 +43,7 @@ return { -- Autoformat
       pgsql = { 'pg_format' },
       mysql = { 'pg_format' },
       markdown = { 'prettierd', 'prettier' },
+      yaml = { 'prettierd', 'prettier' },
       --pgsql = { 'sqlfluff' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },

@@ -1,0 +1,60 @@
+return {
+  {
+    dir = '~/git/personal/nvim-dbee/',
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+    keys = {
+      {
+        '<Leader>do',
+        '<cmd>Dbee open<cr>',
+        desc = 'Dbee open',
+      },
+      {
+        '<Leader>dc',
+        '<cmd>Dbee close<cr>',
+        desc = 'Dbee close',
+      },
+    },
+    build = function()
+      -- Install tries to automatically detect the install method.
+      -- if it fails, try calling it with one of these parameters:
+      --    "curl", "wget", "bitsadmin", "go"
+      require('dbee').install()
+    end,
+    config = function()
+      require('dbee').setup(--[[optional config]])
+    end,
+  },
+}
+
+-- return {
+--   {
+--     'oliverlambson/nvim-dbee',
+--     branch = 'feat/snowflake',
+--     dependencies = {
+--       'MunifTanjim/nui.nvim',
+--     },
+--     keys = {
+--       {
+--         '<Leader>do',
+--         '<cmd>Dbee open<cr>',
+--         desc = 'Dbee open',
+--       },
+--       {
+--         '<Leader>dc',
+--         '<cmd>Dbee close<cr>',
+--         desc = 'Dbee close',
+--       },
+--     },
+--     build = function()
+--       -- Install tries to automatically detect the install method.
+--       -- if it fails, try calling it with one of these parameters:
+--       --    "curl", "wget", "bitsadmin", "go"
+--       require('dbee').install()
+--     end,
+--     config = function()
+--       require('dbee').setup(--[[optional config]])
+--     end,
+--   },
+-- }
