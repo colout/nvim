@@ -176,7 +176,15 @@ return { -- LSP Configuration & Plugins
       'mypy',
       'pylint',
     })
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+    if not vim.g.system_id == 'nixos' then
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+    else
+      -- do not start on nixos. will not be able to auto install most stuff
+      require('mason-tool-installer').setup {
+        auto_update = false,
+        run_on_start = false,
+      } 
+    end
 
     require('mason-lspconfig').setup {
       handlers = {
