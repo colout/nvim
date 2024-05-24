@@ -14,8 +14,9 @@ return {
     require('auto-session').setup {
       session_lens = {},
       pre_save_cmds = {
-        'DBUIClose',
+        --'DBUIClose',
       },
+      auto_restore_enabled = false
     }
   end,
 }
