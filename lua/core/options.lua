@@ -57,6 +57,10 @@ vim.opt.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 
+-- I hate the 1 second delay after pressing escape. Effectively disables that
+--vim.opt.timeoutlen = 0
+--vim.opt.ttimeoutlen = 0
+
 -- Conceal formatting for markdown
 vim.opt.conceallevel = 1
 vim.opt_local.conceallevel = 2

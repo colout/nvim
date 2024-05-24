@@ -149,24 +149,32 @@ return { -- LSP Configuration & Plugins
       },
     }
 
-    -- Ensure the servers and tools above are installed
-    --  To check the current status of installed tools and/or manually install
-    --  other tools, you can run
-    --    :Mason
-    --
-    --  You can press `g?` for help in this menu.
     require('mason').setup()
 
-    -- You can add other tools here that you want Mason to install
-    -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
       'gopls',
+
+      -- Markdown
       'marksman',
+
+      -- General
       'prettier',
+
+      -- Docker
       'dockerls',
       'docker_compose_language_service',
+
+      -- Python
+      -- Don't forget to `!pip3 install neovim debugpy isort` in your current py env
+      'pyright',
+      'black',
+      'debugpy',
+      'flake8',
+      'isort',
+      'mypy',
+      'pylint',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
