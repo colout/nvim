@@ -16,32 +16,42 @@ return {
     { '<leader>odT', '<cmd>ObsidianTomorrow<cr>', desc = '[O]bsidian [D]ailies [s-T]omorrow' },
     { '<leader>ody', '<cmd>ObsidianYesterday<cr>', desc = '[O]bsidian [D]ailies [Y]esterday' },
   },
-  opts = {
-    workspaces = {
-      {
+  opts = function()
+    local workspaces = {
+      name = 'personal',
+      path = '~/obsidian/personal',
+    }
+
+    -- My work macbook should have my work workspace
+    if vim.g.system_id == 'Darwin' then
+      table.insert(workspaces, {
         name = 'work',
         path = '~/obsidian/work',
+      })
+    end
+
+    return {
+      workspaces = { workspaces },
+
+      completion = {
+        nvim_cmp = true,
+        min_chars = 2,
       },
-    },
 
-    completion = {
-      nvim_cmp = true,
-      min_chars = 2,
-    },
-
-    templates = {
-      folder = 'templates',
-      date_format = '%Y-%m-%d-%a',
-      time_format = '%H:%M',
-    },
-
-    mappings = {
-      ['<leader>ogf'] = {
-        action = function()
-          return require('obsidian').util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true, desc = '[O]bsidian [G]oto [F]ile (or link)' },
+      templates = {
+        folder = 'templates',
+        date_format = '%Y-%m-%d-%a',
+        time_format = '%H:%M',
       },
-    },
-  },
+
+      mappings = {
+        ['<leader>ogf'] = {
+          action = function()
+            return require('obsidian').util.gf_passthrough()
+          end,
+          opts = { noremap = false, expr = true, buffer = true, desc = '[O]bsidian [G]oto [F]ile (or link)' },
+        },
+      },
+    }
+  end,
 }
