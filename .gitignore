@@ -8,3 +8,5 @@ nvim
 
 spell/
 lazy-lock.json
+
+**/get_secret.sh

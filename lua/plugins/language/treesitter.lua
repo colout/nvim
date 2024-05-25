@@ -9,7 +9,6 @@ return { -- Highlight, edit, and navigate code
       'lua',
       'luadoc',
       'markdown',
-      'markdown_inline',
       'nix',
       'vim',
       'vimdoc',
@@ -20,8 +19,6 @@ return { -- Highlight, edit, and navigate code
       'lua',
       'go',
       'bash',
-      'markdown',
-      'markdown_inline',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
