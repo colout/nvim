@@ -1,6 +1,10 @@
 return {
+  -- TODO: If I decide not to use <leader>g, then use that for git commands
   {
     'lewis6991/gitsigns.nvim',
+    dependencies = {
+      'folke/which-key.nvim',
+    },
     opts = {
       signs = {
         add = { text = '+' },
@@ -56,21 +60,25 @@ return {
           gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end, { desc = 'reset git hunk' })
         -- normal mode
-        map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [s]tage hunk' })
-        map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [r]eset hunk' })
-        map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [S]tage buffer' })
-        map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'git [u]ndo stage hunk' })
-        map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
-        map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
-        map('n', '<leader>hb', gitsigns.blame_line, { desc = 'git [b]lame line' })
-        map('n', '<leader>hd', gitsigns.diffthis, { desc = 'git [d]iff against index' })
+        map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'git [H]unk [s]tage hunk' })
+        map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'git [H]unk [r]eset hunk' })
+        map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'git [H]unk [S]tage buffer' })
+        map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'git [H]unk [u]ndo stage hunk' })
+        map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [H]unk [R]eset buffer' })
+        map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [H]unk [p]review hunk' })
+        map('n', '<leader>hb', gitsigns.blame_line, { desc = 'git [H]unk [b]lame line' })
+        map('n', '<leader>hd', gitsigns.diffthis, { desc = 'git [H]unk [d]iff against index' })
         map('n', '<leader>hD', function()
           gitsigns.diffthis '@'
-        end, { desc = 'git [D]iff against last commit' })
+        end, { desc = 'git [H]unk [D]iff against last commit' })
         -- Toggles
-        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
-        map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = '[T]oggle git show [D]eleted' })
+        map('n', '<leader>htb', gitsigns.toggle_current_line_blame, { desc = 'git [H]unk [T]oggle show [b]lame line' })
+        map('n', '<leader>htD', gitsigns.toggle_deleted, { desc = 'git [H]unk [T]oggle show [D]eleted' })
       end,
     },
+  },
+  require('which-key').register {
+    ['<leader>h'] = { name = 'git [H]unk', _ = 'which_key_ignore' },
+    ['<leader>ht'] = { name = 'git [H]unk [T]oggle', _ = 'which_key_ignore' },
   },
 }

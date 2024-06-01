@@ -16,5 +16,10 @@ return {
       border = 'curved',
       winblend = 15,
     },
+    highlights = {
+      Normal = {
+        guibg = "#ff0000",
+      },
+    },
   },
 }

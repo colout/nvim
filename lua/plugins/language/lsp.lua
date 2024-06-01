@@ -6,6 +6,7 @@ return { -- LSP Configuration & Plugins
 
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
     { 'folke/neodev.nvim', opts = {} },
+    'folke/which-key.nvim',
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -15,15 +16,19 @@ return { -- LSP Configuration & Plugins
           vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        -- Replace some builtins
         map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
         map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-        map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-        map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        map('<leader>lD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+        -- Some LSP commands (might be some duplicates fromt he buildins above for now...)
+        map('<leader>lt', require('telescope.builtin').lsp_type_definitions, 'Goto [T]ype definition')
+        map('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document [S]ymbols')
+        map('<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace symbols')
+        -- LSP Saga did these better:
+        -- map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+        -- map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+        -- map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
       end,
     })
     -- LSP servers and clients are able to communicate to each other what features they support.
@@ -35,15 +40,14 @@ return { -- LSP Configuration & Plugins
 
     -- :h lspconfig-all
     local servers = {
-      nil_ls = {}, -- nix
-      sqlls = {
+      sqlls                           = {
         filetypes = { 'mysql', 'sql' },
         root_dir = function()
           return vim.loop.cwd()
         end,
       },
 
-      lua_ls = { -- lua
+      lua_ls                          = { -- lua
         settings = {
           Lua = {
             completion = {
@@ -53,22 +57,29 @@ return { -- LSP Configuration & Plugins
         },
       },
 
-      marksman = {}, -- markdown
-      terraformls = {}, -- terraform
-      gopls = {}, -- golang
+      yamlls                          = {}, -- yaml
+      jsonls                          = {}, -- json
+
+      marksman                        = {}, -- markdown
+      terraformls                     = {}, -- terraform
+      gopls                           = {}, -- golang
+
+      nil_ls                          = {}, --nix
 
       -- python:
-      pyright = {},
+      pyright                         = {},
 
       -- docker:
       docker_compose_language_service = {},
-      dockerls = {},
+      dockerls                        = {},
     }
 
     for server, conf in pairs(servers) do
       require('lspconfig')[server].setup { conf }
     end
 
+    -- Below is completely unused
+    -- ... Just leftover from my kickstart config, and I want to create some docs/automation on this later
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       -- Python
@@ -82,4 +93,7 @@ return { -- LSP Configuration & Plugins
       'pylint',
     })
   end,
+  require('which-key').register {
+    ['<leader>l'] = { name = '[L]sp', _ = 'which_key_ignore', mode = { 'n', 'v' } },
+  },
 }

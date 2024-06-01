@@ -1,7 +1,7 @@
 return {
   'rebelot/kanagawa.nvim',
   opts = {
-    -- transparent = true,
+    transparent = true,
     background = { -- map the value of 'background' option to a theme
       dark = 'wave',
       --dark = 'dragon',

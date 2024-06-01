@@ -7,7 +7,7 @@ return {
       function()
         require('auto-session.session-lens').search_session()
       end,
-      desc = '[F]ind neovim [s-S]ession',
+      desc = 'Find: [s-S]ession',
     },
   },
   config = function()
@@ -16,7 +16,9 @@ return {
       pre_save_cmds = {
         --'DBUIClose',
       },
-      auto_restore_enabled = false
+      auto_restore_enabled = false,
+      auto_session_enabled = true,
+      auto_save_enabled = true,
     }
   end,
 }

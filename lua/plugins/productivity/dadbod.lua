@@ -1,7 +1,8 @@
 return {
   'kristijanhusak/vim-dadbod-ui',
   dependencies = {
-    { 'tpope/vim-dadbod', lazy = true },
+    'folke/which-key.nvim',
+    { 'tpope/vim-dadbod',                     lazy = true },
     { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'pgsql' }, lazy = true },
   },
   cmd = {
@@ -23,4 +24,8 @@ return {
       command = [[setlocal nofoldenable]],
     })
   end,
+
+  require('which-key').register {
+    ['<leader>d'] = { name = '[D]adbod', _ = 'which_key_ignore' },
+  },
 }

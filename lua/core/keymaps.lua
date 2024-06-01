@@ -1,5 +1,5 @@
 -- Diagnostic keymaps
-vim.keymap.set('n', ';', ':')
+-- vim.keymap.set('n', ';', ':') -- Might add this back for qol.  ';' repeats 't' or 'f' movement
 vim.keymap.set('n', 'x', '"_x')
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
