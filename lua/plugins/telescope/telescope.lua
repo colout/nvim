@@ -14,7 +14,7 @@ return {
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
     require('telescope').setup {
@@ -23,6 +23,9 @@ return {
           i = {
             ['<c-j>'] = 'move_selection_next',
             ['<c-k>'] = 'move_selection_previous',
+          },
+          n = {
+            ['<c-c>'] = require('telescope.actions').close,
           },
         },
       },

@@ -7,8 +7,6 @@ return {
     opts = {
       options = {
         diagnostics = 'nvim_lsp',
-        diagnostics_update_in_insert = true,
-
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
           return '(' .. count .. ')'
         end,
@@ -17,6 +15,7 @@ return {
     config = function(_, opts)
       local nmap = function(lhs, rhs, desc)
         vim.keymap.set('n', lhs, rhs, { desc = desc })
+        vim.diagnostic.config { update_in_insert = true }
       end
 
       require('bufferline').setup(opts)

@@ -25,6 +25,8 @@ return { -- LSP Configuration & Plugins
         map('<leader>lt', require('telescope.builtin').lsp_type_definitions, 'Goto [T]ype definition')
         map('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document [S]ymbols')
         map('<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace symbols')
+
+        -- enable/disable LSP diagnostics
         -- LSP Saga did these better:
         -- map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
         -- map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -40,14 +42,14 @@ return { -- LSP Configuration & Plugins
 
     -- :h lspconfig-all
     local servers = {
-      sqlls                           = {
+      sqlls = {
         filetypes = { 'mysql', 'sql' },
         root_dir = function()
           return vim.loop.cwd()
         end,
       },
 
-      lua_ls                          = { -- lua
+      lua_ls = { -- lua
         settings = {
           Lua = {
             completion = {
@@ -57,21 +59,23 @@ return { -- LSP Configuration & Plugins
         },
       },
 
-      yamlls                          = {}, -- yaml
-      jsonls                          = {}, -- json
+      yamlls = {}, -- yaml
+      jsonls = {}, -- json
 
-      marksman                        = {}, -- markdown
-      terraformls                     = {}, -- terraform
-      gopls                           = {}, -- golang
+      marksman = {}, -- markdown
+      terraformls = {}, -- terraform
+      gopls = {}, -- golang
 
-      nil_ls                          = {}, --nix
+      nil_ls = {}, --nix
+
+      clangd = {}, --c, cpp
 
       -- python:
-      pyright                         = {},
+      pyright = {},
 
       -- docker:
       docker_compose_language_service = {},
-      dockerls                        = {},
+      dockerls = {},
     }
 
     for server, conf in pairs(servers) do
@@ -83,7 +87,8 @@ return { -- LSP Configuration & Plugins
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       -- Python
-      -- Don't forget to `!pip3 install neovim debugpy isort` in your current py env
+      -- 1. Make sure to have a venv activated
+      -- 2. Bootstrap the venv with `!pip3 install neovim pyright debugpy isort` in your current py env
       'pyright',
       'black',
       'debugpy',

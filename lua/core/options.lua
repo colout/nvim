@@ -10,13 +10,11 @@ vim.opt.mouse = 'a'
 
 vim.opt.showmode = false
 
--- Sync clipboard between OS and Neovim.
--- vim.opt.clipboard = "unnamedplus"
-
 -- Enable break indent
 vim.opt.breakindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.expandtab = true -- Forces ALL tabs to be spaces
 
 vim.opt.encoding = 'utf-8'
 vim.opt.termguicolors = true
@@ -53,14 +51,14 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 20
+
+-- To properly format obsidian (and hides markdown details)
+--   Also can be toggled in keymaps (see the keymaps.lua file)
+vim.opt.conceallevel = 1
+vim.opt_local.conceallevel = 2
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
-
--- Conceal formatting for markdown
-vim.opt.conceallevel = 1
-vim.opt_local.conceallevel = 2
-vim.opt_local.conceallevel = 2
 
 vim.opt.cursorline = true

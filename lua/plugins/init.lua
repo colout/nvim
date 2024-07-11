@@ -18,7 +18,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  --'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically...SO BAD I HATE IT
 
   { import = 'plugins.visuals.helpers' },
   { import = 'plugins.git' },
@@ -27,7 +27,9 @@ require('lazy').setup({
   { import = 'plugins.productivity' },
   { import = 'plugins.llm' },
   { import = 'plugins.visuals' },
+  { import = 'plugins.competitive' },
   { import = 'plugins.visuals.theme' },
+  { import = 'plugins.local' },
   -- { import = 'plugins.llm' },
 }, {
   ui = {

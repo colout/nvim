@@ -9,18 +9,30 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '<Esc><Esc>', 'e:nohl<CR>', { desc = 'Clear Hilights' })
 
 -- TIP: Disable arrow keys in normal mode
-vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+--vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+--vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+--vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+--vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Buffer stuff
 vim.keymap.set('n', '<leader>db', '<cmd>%bdelete|edit #|normal`"<cr>', { desc = '[D]elete all [B]uffers except current' })
 
---- Diagnostic toggle code
+-- Toggles
 vim.keymap.set(
   'n',
-  '<leader>ld',
+  '<leader>td',
   '<cmd>lua vim.diagnostic.enable(not vim.diagnostic.is_enabled())<cr>',
-  { noremap = true, silent = true, desc = 'Toggle [L]sp [D]iagnostics' }
+  { noremap = true, silent = true, desc = '[T]oggle lsp [D]iagnostics' }
 )
+
+local function toggleConceal() -- Conceal formatting for markdown
+  if vim.opt.conceallevel:get() == 0 then
+    vim.opt.conceallevel = 1
+    vim.opt_local.conceallevel = 2
+  else
+    vim.opt.conceallevel = 0
+    vim.opt_local.conceallevel = 0
+  end
+end
+
+vim.keymap.set('n', '<leader>tc', toggleConceal, { desc = '[T]oggle markdown is [C]oncealed' })
