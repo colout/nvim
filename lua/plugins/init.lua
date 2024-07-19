@@ -27,9 +27,9 @@ require('lazy').setup({
   { import = 'plugins.productivity' },
   { import = 'plugins.llm' },
   { import = 'plugins.visuals' },
-  { import = 'plugins.competitive' },
+  --{ import = 'plugins.competitive' },
   { import = 'plugins.visuals.theme' },
-  { import = 'plugins.local' },
+  --{ import = 'plugins.local' },
   -- { import = 'plugins.llm' },
 }, {
   ui = {
