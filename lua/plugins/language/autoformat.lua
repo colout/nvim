@@ -21,21 +21,27 @@ return { -- Autoformat
     require('conform').setup {
       notify_on_error = false,
       format_on_save = function(bufnr)
-        -- Disable "format_on_save lsp_fallback" for languages that don't
-        -- have a well standardized coding style. You can add additional
-        -- languages here or re-enable it for the disabled ones.
-        local enable_filetypes = {
-          lua = true,
-          nix = true,
+        local disable_filetypes = {
+          json = true,
+          sql = true,
+          pgsql = true,
+          mysql = true,
+          markdown = true,
+          python = true,
+          yaml = true,
+          terraform = true,
         }
+
+        if disable_filetypes[vim.bo[bufnr].filetype] then
+          return false
+        end
 
         return {
           timeout_ms = 500,
-          lsp_fallback = enable_filetypes[vim.bo[bufnr].filetype],
-          --lsp_fallback = false,
+          lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
-      log_level = vim.log.levels.DEBUG,
+      --log_level = vim.log.levels.DEBUG,
       formatters_by_ft = {
         lua = { 'stylua' },
         nix = { 'alejandra' },
@@ -46,6 +52,7 @@ return { -- Autoformat
         markdown = { 'prettierd', 'prettier' },
         python = { 'isort' },
         yaml = { 'prettierd', 'prettier' },
+        terraform = { 'terraform_fmt' },
         --pgsql = { 'sqlfluff' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
