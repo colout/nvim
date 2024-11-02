@@ -38,7 +38,8 @@ vim.opt.updatetime = 50
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.opt.timeoutlen = 250 -- Also affects how long to wait after esc...keep this reasonable to allow double escape to register
+--vim.opt.timeoutlen = 250 -- Also affects how long to wait after esc...keep this reasonable to allow double escape to register
+vim.opt.timeoutlen = 500 -- Also affects how long to wait after esc and how quick diff commands work with avante (co, ct). This gives more time to accept the diff
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
@@ -62,3 +63,7 @@ vim.opt_local.conceallevel = 2
 vim.opt.hlsearch = true
 
 vim.opt.cursorline = true
+
+-- views can only be fully collapsed with the global statusline
+-- from https://github.com/yetone/avante.nvim
+vim.opt.laststatus = 3

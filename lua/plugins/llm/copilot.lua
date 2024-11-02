@@ -62,8 +62,8 @@ return {
       vim.keymap.set({ 'n', 'v' }, '<leader>acgc', '<cmd>CopilotChatCommit<CR>', { desc = 'Copilot: Generate git [C]ommit message' })
       vim.keymap.set({ 'n', 'v' }, '<leader>acgs', '<cmd>CopilotChatCommitStaged<CR>', { desc = 'Copilot: Generate git commit [S]taged message' })
     end,
-    require('which-key').register {
-      ['<leader>acg'] = { name = '[C]opilot [G]it commands', _ = 'which_key_ignore' },
+    require('which-key').add {
+      { '<leader>acg', desc = '[C]opilot [G]it commands' },
     },
   },
 }

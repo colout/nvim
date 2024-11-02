@@ -84,7 +84,7 @@ return {
     end, { desc = 'Find: [N]eovim files' })
   end,
 
-  require('which-key').register {
-    ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
+  require('which-key').add {
+    { '<leader>f', desc = '[F]ind' },
   },
 }

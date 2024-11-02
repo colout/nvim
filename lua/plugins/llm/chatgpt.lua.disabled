@@ -53,11 +53,11 @@ return {
       vim.keymap.set('n', '<leader>agp', require('chatgpt').selectAwesomePrompt, { desc = 'AI ChatGPT: [P]rompt' })
     end,
 
-    require('which-key').register {
+    require('which-key').add {
       mode = { 'v', 'n' },
-      ['<leader>a'] = { name = '[A]i', _ = 'which_key_ignore' },
-      ['<leader>ag'] = { name = 'AI: Chat[G]PT', _ = 'which_key_ignore' },
-      ['<leader>ac'] = { name = 'AI: [C]opilot', _ = 'which_key_ignore' },
+      { '<leader>a', desc = '[A]i' },
+      { '<leader>ag', desc = 'AI: Chat[G]PT' },
+      { '<leader>ac', desc = 'AI: [C]opilot' },
     },
   },
 }

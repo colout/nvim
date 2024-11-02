@@ -98,7 +98,7 @@ return { -- LSP Configuration & Plugins
       'pylint',
     })
   end,
-  require('which-key').register {
-    ['<leader>l'] = { name = '[L]sp', _ = 'which_key_ignore', mode = { 'n', 'v' } },
+  require('which-key').add {
+    { '<leader>l', '[L]sp', mode = { 'n', 'v' } },
   },
 }

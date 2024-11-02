@@ -4,6 +4,7 @@ return {
     'lewis6991/gitsigns.nvim',
     dependencies = {
       'folke/which-key.nvim',
+      { 'akinsho/git-conflict.nvim', version = '*', config = true },
     },
     opts = {
       signs = {
@@ -77,8 +78,8 @@ return {
       end,
     },
   },
-  require('which-key').register {
-    ['<leader>h'] = { name = 'git [H]unk', _ = 'which_key_ignore' },
-    ['<leader>ht'] = { name = 'git [H]unk [T]oggle', _ = 'which_key_ignore' },
+  require('which-key').add {
+    { '<leader>h', desc = 'git [H]unk' },
+    { 'leader>ht', name = 'git [H]unk [T]oggle' },
   },
 }
