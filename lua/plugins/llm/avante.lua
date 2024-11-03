@@ -5,12 +5,15 @@ return {
   version = false, -- set this if you want to always pull the latest change
   opts = {
     -- "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot"
-    provider = 'openai',
+    --provider = 'openai',
+    provider = 'claude',
     auto_suggestions_provider = 'copilot', -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
 
     openai = {
-      --api_key_name = 'cmd:$HOME/.config/nvim/get_secret.sh chatgpt',
       api_key_name = { vim.fn.expand '$HOME' .. '/.config/nvim/get_secret.sh', 'chatgpt' },
+    },
+    claude = {
+      api_key_name = { vim.fn.expand '$HOME' .. '/.config/nvim/get_secret.sh', 'claude' },
     },
 
     behaviour = {
