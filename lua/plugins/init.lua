@@ -25,6 +25,7 @@ require('lazy').setup({
   { import = 'plugins.telescope' },
   { import = 'plugins.language' },
   { import = 'plugins.productivity' },
+  { import = 'plugins.productivity.neodev' }, -- Add neodev for plugin development
   { import = 'plugins.llm' },
   { import = 'plugins.visuals' },
   { import = 'plugins.visuals.theme' },
