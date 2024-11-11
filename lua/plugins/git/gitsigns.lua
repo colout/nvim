@@ -80,6 +80,6 @@ return {
   },
   require('which-key').add {
     { '<leader>h', desc = 'git [H]unk' },
-    { 'leader>ht', name = 'git [H]unk [T]oggle' },
+    { '<leader>ht', desc = 'git [H]unk [T]oggle' },
   },
 }

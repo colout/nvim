@@ -10,6 +10,7 @@ return { -- Useful plugin to show you pending keybinds.
         desc = '[T]oggle',
         mode = { 'n', 'v' },
       },
+      { '<leader>a', desc = '[A]i', mode = { 'n', 'v' } },
     }
   end,
 }
