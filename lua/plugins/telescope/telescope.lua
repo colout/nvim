@@ -55,6 +55,12 @@ return {
     )
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Find: [K]eymaps' })
     vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find: [F]iles' })
+    vim.keymap.set(
+      'n',
+      '<Leader>fF',
+      ':lua require"telescope.builtin".find_files({ hidden = true, no_ignore = true })<CR>',
+      { desc = 'Find: [F]iles (hidden)', noremap = true, silent = true }
+    )
     vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Find: [S]elect Telescope' })
     vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Find: Current [W]ord' })
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Find: [G]rep' })
