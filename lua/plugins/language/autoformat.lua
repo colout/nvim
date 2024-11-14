@@ -10,9 +10,21 @@ return { -- Autoformat
       mode = '',
       desc = 'LSP: [F]ormat',
     },
+    {
+      '<leader>tf',
+      function()
+        -- Toggle format on save
+        vim.g.format_on_save = not vim.g.format_on_save
+        vim.notify(string.format('Format on save: %s', vim.g.format_on_save and 'on' or 'off'))
+      end,
+      mode = '',
+      desc = 'Toggle format on save',
+    },
   },
 
   config = function()
+    -- Initialize format on save state
+    vim.g.format_on_save = true
     -- Lua formatter customization to force 2 spaces indentation
     require('conform').formatters.stylua = {
       prepend_args = { '--indent-type', 'spaces', '--indent-width', '2' },
@@ -21,6 +33,10 @@ return { -- Autoformat
     require('conform').setup {
       notify_on_error = false,
       format_on_save = function(bufnr)
+        -- Check global toggle state first
+        if not vim.g.format_on_save then
+          return false
+        end
         local disable_filetypes = {
           json = true,
           sql = true,
