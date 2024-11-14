@@ -5,7 +5,6 @@ return {
   version = false, -- set this if you want to always pull the latest change
   opts = {
     -- "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot"
-    --provider = 'openai',
     provider = 'claude',
     auto_suggestions_provider = 'copilot', -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
 
@@ -16,6 +15,10 @@ return {
       api_key_name = { vim.fn.expand '$HOME' .. '/.config/nvim/get_secret.sh', 'claude' },
     },
 
+    claude = {
+      api_key_name = { vim.fn.expand '$HOME' .. '/.config/nvim/get_secret.sh', 'anthropic' },
+    },
+
     behaviour = {
       auto_suggestions = false, -- Experimental stage
       auto_set_highlight_group = true,
@@ -24,6 +27,19 @@ return {
       support_paste_from_clipboard = false,
     },
     -- add any opts here
+    mappings = {
+      ask = '<leader>aaa', -- ask
+      edit = '<leader>aae', -- edit
+      refresh = '<leader>aar', -- refresh
+      focus = '<leader>aaf',
+      toggle = {
+        default = '<leader>aat',
+        debug = '<leader>aad',
+        hint = '<leader>aah',
+        suggestion = '<leader>aas',
+        repomap = '<leader>aaR',
+      },
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',
@@ -61,5 +77,8 @@ return {
       },
       ft = { 'markdown', 'Avante' },
     },
+  },
+  require('which-key').add {
+    { '<leader>aa', desc = '[A]vante', mode = { 'n', 'v' } },
   },
 }
