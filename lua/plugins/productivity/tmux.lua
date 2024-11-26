@@ -14,4 +14,7 @@ return {
     { "<c-l>", "<cmd>TmuxNavigateRight<cr>" },
     --{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
   },
+  config = function()
+    vim.g.tmux_navigator_no_wrap = 1
+  end,
 }

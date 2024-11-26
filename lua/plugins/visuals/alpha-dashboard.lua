@@ -35,8 +35,9 @@ return {
     }
 
     dashboard.section.buttons.val = {
-      dashboard.button('SPC f S', '󰨭  Search sessions', "<cmd>lua require('auto-session.session-lens').search_session()<cr>"),
       dashboard.button('SPC s l', '  Open last session', "<cmd>lua require('auto-session').RestoreSession(vim.fn.getcwd())<cr>"),
+      dashboard.button('SPC f S', '󰨭  Search sessions', "<cmd>lua require('auto-session.session-lens').search_session()<cr>"),
+      dashboard.button('SPC s n', '  Neovim config', "<cmd>lua require('auto-session').RestoreSession(vim.fn.expand '$HOME' .. '/.config/nvim')<cr>"),
       dashboard.button('e', '  New file', '<cmd>ene <CR>'),
     }
     alpha.setup(dashboard.config)
