@@ -22,7 +22,7 @@ return {
 
       nmap('<s-tab>', '<cmd>bp<cr>', 'Previous buffer')
       nmap('<tab>', '<cmd>bn<cr>', 'Next Buffer ')
-      nmap('<leader>bd', '<cmd>bd<cr>', '[B]uffer [D]elete')
+      nmap('<leader>bd', '<cmd>bd!<cr>', '[B]uffer [D]elete')
       nmap( "<leader>bD", '<cmd>%bdelete|edit #|normal`"<cr>', "[D]elete all [B]uffers except current")
 
     end,
