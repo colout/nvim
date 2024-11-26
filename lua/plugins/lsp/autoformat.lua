@@ -14,9 +14,8 @@ return { -- Autoformat
       "<leader>tf",
       function()
         -- Toggle format on save
-        local format_on_save = not vim.g.format_on_save
-        vim.g.format_on_save = format_on_save
-        vim.notify(string.format("Format on save: %s", format_on_save and "on" or "off"))
+        vim.g.format_on_save = not vim.g.format_on_save
+        vim.notify(string.format("Format on save: %s", vim.g.format_on_save and "on" or "off"))
       end,
       mode = "",
       desc = "Toggle format on save",
@@ -24,12 +23,14 @@ return { -- Autoformat
   },
 
   opts = {
+    -- TODO: move these to the language specific files
     disable_filetypes = {
       json = true,
       sql = true,
       pgsql = true,
       mysql = true,
       markdown = true,
+      --python = true,
       yaml = true,
       terraform = true,
     },
@@ -49,8 +50,6 @@ return { -- Autoformat
       prepend_args = { "--indent-type", "spaces", "--indent-width", "2" },
     }
 
-    local TIMEOUT_MS = 500
-
     require("conform").setup({
       notify_on_error = false,
 
@@ -62,17 +61,18 @@ return { -- Autoformat
           return false
         end
 
-        local filetype = vim.bo[bufnr].filetype or ""
-        if disable_filetypes[filetype] then
+        if disable_filetypes[vim.bo[bufnr].filetype] then
           return false
         end
 
         return {
-          timeout_ms = TIMEOUT_MS,
-          lsp_fallback = not disable_filetypes[filetype],
+          timeout_ms = 500,
+          lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
 
+      --log_level = vim.log.levels.DEBUG,
+      -- TODO: move these to the language specific files
       formatters_by_ft = {
         lua = { "stylua" },
         nix = { "alejandra" },
@@ -83,6 +83,7 @@ return { -- Autoformat
         markdown = { "prettierd", "prettier" },
         yaml = { "prettierd", "prettier" },
         terraform = { "terraform_fmt" },
+        --pgsql = { 'sqlfluff' },
       },
     })
   end,

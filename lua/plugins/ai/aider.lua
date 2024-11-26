@@ -3,8 +3,9 @@ return {
   cmd = {
     "AiderTerminalToggle",
   },
+
   keys = {
-    { "<leader>a/", "<cmd>AiderTerminalToggle<cr>", desc = "Open Aider" },
+    { "<leader>at", "<cmd>AiderTerminalToggle<cr>", desc = "Open Aider" },
     { "<leader>as", "<cmd>AiderTerminalSend<cr>", desc = "Send to Aider", mode = { "n", "v" } },
     { "<leader>ac", "<cmd>AiderQuickSendCommand<cr>", desc = "Send Command To Aider" },
     { "<leader>ab", "<cmd>AiderQuickSendBuffer<cr>", desc = "Send Buffer To Aider" },
@@ -17,15 +18,20 @@ return {
     --- The below dependencies are optional
     "catppuccin/nvim",
   },
-  config = true,
+
   opts = {
     args = {
       "--stream",
       "--no-show-model-warnings",
       "--model",
       "openai/qwen2.5-coder:medium-context"
-    }
-  }
+    },
+  win = {
+    style = "nvim_aider",
+    position = "float",
+  },
+  },
+
 }
 
 --return { "nekowasabi/aider.vim"
