@@ -9,6 +9,7 @@ vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 
 vim.opt.showmode = false
+vim.opt.wrap = false
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -54,7 +55,8 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
 
-vim.opt.scrolloff = 20
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 
 -- To properly format obsidian (and hides markdown details)
 --   Also can be toggled in keymaps (see the keymaps.lua file)
@@ -70,15 +72,12 @@ vim.opt.cursorline = true
 vim.opt.laststatus = 3
 
 -- Cursor overrides
-vim.api.nvim_set_hl(0, 'rCursor', { fg = '#d70000', ctermbg = 124 }) -- Modes plugin will handle the per-mode color settings though
+--vim.api.nvim_set_hl(0, "rCursor", { fg = "#d70000", ctermbg = 124 }) -- Modes plugin will handle the per-mode color settings though
+vim.opt.guicursor = "n-v-c-sm-i-ci-ve:block,a:blinkon150-blinkoff150-blinkwait150,r-cr-o:hor20"
 
--- -- A nice way to lay out my cursor conf
--- local cursor_config = {
---   'a:block',
---   'ci:ver10',
--- }
--- 
--- --		set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
--- --		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
--- --		  \,sm:block-blinkwait175-blinkoff150-blinkon175
--- vim.opt.guicursor = table.concat(cursor_config, ',')
+vim.g.netrw_banner = 0 -- gets rid of the annoying banner for netrw
+vim.g.netrw_browse_split = 4 -- open in prior window
+vim.g.netrw_altv = 1 -- change from left splitting to right splitting
+vim.g.netrw_liststyle = 3 -- tree style view in netrw
+
+--vim.opt.completeopt = { "menuone", "noselect" }

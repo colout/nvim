@@ -31,7 +31,16 @@ return {
         },
       })
 
-      require("mini.animate").setup()
+      require("mini.animate").setup({
+        cursor = {
+          enable = true,
+          timing = require("mini.animate").gen_timing.cubic({ duration = 50, unit = "total" }),
+        },
+        scroll = {
+          enable = true,
+          timing = require("mini.animate").gen_timing.cubic({ duration = 50, unit = "total" }),
+        },
+      }) -- animate cursor, scrolling, etc
       require("mini.indentscope").setup({
         symbol = "║",
       })

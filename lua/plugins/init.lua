@@ -24,4 +24,9 @@ require("lazy").setup({
   { import = "plugins.lsp" },
   { import = "plugins.visuals" },
   { import = "plugins.visuals.theme" },
+}, {
+  change_detection = {
+    enabled = true,
+    notify = false,
+  },
 })

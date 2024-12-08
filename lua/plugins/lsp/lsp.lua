@@ -12,6 +12,7 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("main-lsp-attach", { clear = true }),
         callback = function(event)
+          vim.g.sql_type_default = "pgsql"
           local map = function(keys, func, desc)
             vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
           end
@@ -35,8 +36,13 @@ return {
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+      local configs = require("plugins.lsp.lsp_configuration.config")
+      for _, c in ipairs(configs) do
+        for server, config in pairs(c.servers) do
+          require("lspconfig")[server].setup(config)
+        end
+      end
     end,
   },
-
-  { import = "plugins.lsp.language" },
 }
