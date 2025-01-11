@@ -16,6 +16,7 @@ return { -- Useful plugin to show you pending keybinds.
       { "<leader>f", desc = "[F]ind" },
       { "<leader>g", desc = "[G]it" },
       { "<leader>gh", desc = "git [H]unk" },
+      { "<leader>o", desc = "[O]bsidian" },
     })
   end,
 }

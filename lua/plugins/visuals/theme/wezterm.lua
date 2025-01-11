@@ -24,6 +24,8 @@ return {
         plugin.opts.theme_name = last_theme
       end
     end
+
+    vim.cmd("hi TermCursor guifg=green")
   end,
 }
 --return {

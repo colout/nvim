@@ -1,13 +1,14 @@
 return {
-  "colout/langchain-assistant.nvim",
+  "colout/neo-jeeves.nvim",
   dev = true,
-  dir = "~/git/personal/nvim-plugins/langchain-assistant/",
+  dir = "~/git/personal/nvim-plugins/neo-jeeves.nvim/",
   dependencies = {
     "neovim/pynvim",
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    require("langchain-assistant").setup({
+    require("neo-jeeves").setup({
+      debug = true,
       anthropic_api_key = vim.fn.system("~/.config/nvim/get_secret.sh anthropic"):gsub("%s+$", ""),
     })
   end,
