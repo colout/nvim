@@ -43,7 +43,7 @@ vim.opt.updatetime = 50
 -- Displays which-key popup sooner
 --vim.opt.timeoutlen = 250 -- Also affects how long to wait after esc...keep this reasonable to allow double escape to register
 vim.opt.timeoutlen = 500 -- Also affects how long to wait after esc and how quick diff commands work with avante (co, ct). This gives more time to accept the diff
-vim.opt.timeout = false -- disable timeout since it's annoying.  ignore the line above.  that's disabled when this is false
+--vim.opt.timeout = false -- disable timeout since it's annoying.  ignore the line above.  that's disabled when this is false
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true

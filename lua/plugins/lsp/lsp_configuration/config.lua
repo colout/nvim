@@ -173,4 +173,18 @@ return {
       docker_compose_language_service = {},
     },
   },
+
+  -- golang
+  {
+    filetype = "go",
+    linters = {
+      --"docker_compose_lint"
+    },
+    formatters = {},
+    format_on_save = false,
+    luasnip_filetype_extend = false,
+    servers = {
+      gopls = {},
+    },
+  },
 }
