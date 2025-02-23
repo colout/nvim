@@ -34,20 +34,17 @@ return {
       },
     })
     local workspaces = {
-      name = "personal",
-      path = "~/obsidian/personal",
+      {
+        name = "personal",
+        path = "~/obsidian/personal",
+      },
     }
 
-    -- My work macbook should have my work workspace
-    if vim.g.system_id == "Darwin" then
-      workspaces = {
-        name = "work",
-        path = "~/obsidian/work",
-      }
-    end
-
     return {
-      workspaces = { workspaces },
+      workspaces = workspaces,
+      ui = {
+        enable = false,
+      },
 
       completion = {
         nvim_cmp = true,

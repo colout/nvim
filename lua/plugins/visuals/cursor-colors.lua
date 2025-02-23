@@ -1,5 +1,6 @@
 return {
   "mvllow/modes.nvim",
+  --dir = "~/git/personal/nvim-plugins/test/modes.nvim",
   opts = {
     colors = {
       copy = "yellow",
@@ -17,7 +18,8 @@ return {
     set_cursor = true,
     set_cursorline = true,
     set_number = true,
+    enable_colored_nofile = true,
 
-    ignore_filetypes = { "NvimTree", "TelescopePrompt" },
+    ignore_filetypes = {},
   },
 }
